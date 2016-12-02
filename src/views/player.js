@@ -2,12 +2,21 @@
 module.exports = Backbone.View.extend({
 
   events: {
-    'click #play': 'parse'
+    'click #play': 'parse',
+    'keydown textarea': 'resize'
   },
 
   initialize: function(params) {
 
-    console.log(params);
+  },
+
+  resize: function() {
+
+    var area = this.$el.find('textarea');
+    area.css('height', 'auto');
+    area.css('height', area.get(0).scrollHeight+'px');
+
+    return this;
   },
 
   parse: function() {
@@ -33,7 +42,7 @@ module.exports = Backbone.View.extend({
 
   render: function() {
 
-    return this;
+    return this.resize();
   },
 
 })

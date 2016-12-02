@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'yeseva';
+  src: url('yesevaone-regular_v2-webfont.woff2') format('woff2'),
+       url('yesevaone-regular_v2-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cabin';
+  src: url('cabin-regular-webfont.woff2') format('woff2'),
+       url('cabin-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #101010;
+  height: 100%;
+  text-align: center;
+}
+
+.align{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.canvas{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'yeseva';
+  color: #202020;
+  font-size: 45px;
+}
+
+.canvas i {
+  position: absolute;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.canvas i.ready {
+  transform: scale(1.4);
+  transition: 1s;
+  opacity: 0;
+}
+
+.sources{
+  display: none;
+}
+
+/* -------------------------------------------------------- */
+/* Partition
+/* -------------------------------------------------------- */
+.parts{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  width: 85%;
+  position: relative;
+  z-index: 99;
+  opacity: 0;
+  transform: translate3d(0, -50px, 0);
+  transition: .33s;
+}
+
+.ready .parts{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: .7s;
+}
+
+.parts textarea{
+  width: 650px;
+  height: auto;
+  resize: none;
+  overflow: hidden;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  padding: 12px;
+  border-bottom: 1px solid #202020;
+  color: #484848;
+  font-family: 'Arial';
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: 1px;
+}
+
+.parts .controls{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  text-align: right;
+}
+
+
+/* -------------------------------------------------------- */
+/* Velcome
+/* -------------------------------------------------------- */
+.velcome{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  top: 0;
+  margin: auto;
+  height: 85px;
+  opacity: 0;
+  transform: translate3d(0, -50px, 0);
+  transition: .33s;
+}
+
+.loading .velcome{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: .7s;
+}
+
+.velcome h2{
+  color: #202020;
+  font-family: 'yeseva';
+  font-size: 70px;
+  line-height: 85px;
+  display: inline-block;
+  position: relative;
+}
+
+.velcome h2:before{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #202020;
+  content: "";
+  transition: .33s;
+  transition-delay: 1.2s;
+}
+
+.loading .velcome h2:before{
+  width: 100%;
+}

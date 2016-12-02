@@ -1,5 +1,6 @@
 var notes = require('./notes');
 var Player = require('./player');
+var Canvas = require('./canvas');
 
 module.exports = Backbone.View.extend({
 
@@ -8,10 +9,10 @@ module.exports = Backbone.View.extend({
   },
 
   player: null,
+  canvas: null,
 
   initialize: function(params) {
 
-    console.log(params);
   },
 
   initPlayer: function() {
@@ -22,16 +23,25 @@ module.exports = Backbone.View.extend({
     return this;
   },
 
+  initCanvas: function() {
+
+    this.canvas = new Canvas({el: $('.canvas')});
+    this.canvas.render();
+    return this;
+  },
+
   getNote: function(e) {
 
+    this.canvas.add(e.key || e)
     return this.play(notes[e.key || e])
   },
 
   play: function(note) {
 
     var sound = this.$el.find('#'+note).clone();
-    if (sound.length === 0) return false;
+    if (sound.length === 0) return true;
 
+    sound.get(0).volume = 0.1;
     sound.get(0).play();
     sound.get(0).onended = function() {
       sound.remove();
@@ -42,7 +52,10 @@ module.exports = Backbone.View.extend({
 
   render: function() {
 
-    return this.initPlayer();
+    return [
+      this.initPlayer(),
+      this.initCanvas()
+    ]
   },
 
 })

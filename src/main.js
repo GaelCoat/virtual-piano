@@ -1,5 +1,5 @@
-style = require('!style/useable!css!sass!./sass/main.scss')
-style.use()
+//style = require('!style/useable!css!sass!./sass/main.scss')
+//style.use()
 
 var Piano = require('./views/piano');
 
@@ -15,6 +15,7 @@ var Main = Backbone.View.extend({
 
     this.piano = new Piano({el: $('body')});
     this.piano.render();
+    return this;
   },
 
   initSounds: function() {
@@ -28,19 +29,27 @@ var Main = Backbone.View.extend({
     for(var i = 49; i<91; i++) {
       that.$el.find('.sources').append("<audio id='b"+i+"' preload='auto'><source src='/notes/b"+i+".ogg' type='audio/ogg'><source src='/notes/b"+i+".mp3' type='audio/mpeg'></audio>");
     }
+
+    return this;
   },
 
   render: function() {
 
     var that = this;
 
-    return q.fcall([
-      this.initSounds(),
-      this.initPiano(),
-    ])
+    this.$el.addClass('loading');
+
+    return q.fcall(function() {
+
+      return [
+        that.initSounds(),
+        that.initPiano(),
+      ]
+    })
+    .delay(3000)
     .then(function() {
 
-      console.log('all goot');
+      that.$el.removeClass('loading').addClass('ready');
       return that;
     });
 
