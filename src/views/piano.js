@@ -32,14 +32,15 @@ module.exports = Backbone.View.extend({
 
   getNote: function(e) {
 
-    this.canvas.add(e.key || e)
-    return this.play(notes[e.key || e])
+    return this.play(notes[e.key || e], e)
   },
 
-  play: function(note) {
+  play: function(note, e) {
 
     var sound = this.$el.find('#'+note).clone();
     if (sound.length === 0) return true;
+
+    this.canvas.add(e.key || e)
 
     sound.get(0).volume = 0.1;
     sound.get(0).play();

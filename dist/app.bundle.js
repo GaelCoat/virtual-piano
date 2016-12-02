@@ -12,7 +12,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function(Backbone, $, q) {//style = require('!style/useable!css!sass!./sass/main.scss')
 	//style.use()
 
-	var Piano = __webpack_require__(12);
+	var Piano = __webpack_require__(8);
 
 	var Main = Backbone.View.extend({
 
@@ -81,16 +81,12 @@ webpackJsonp([0],[
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Backbone, $) {var notes = __webpack_require__(13);
-	var Player = __webpack_require__(14);
-	var Canvas = __webpack_require__(15);
+	/* WEBPACK VAR INJECTION */(function(Backbone, $) {var notes = __webpack_require__(9);
+	var Player = __webpack_require__(10);
+	var Canvas = __webpack_require__(11);
 
 	module.exports = Backbone.View.extend({
 
@@ -122,14 +118,15 @@ webpackJsonp([0],[
 
 	  getNote: function(e) {
 
-	    this.canvas.add(e.key || e)
-	    return this.play(notes[e.key || e])
+	    return this.play(notes[e.key || e], e)
 	  },
 
-	  play: function(note) {
+	  play: function(note, e) {
 
 	    var sound = this.$el.find('#'+note).clone();
 	    if (sound.length === 0) return true;
+
+	    this.canvas.add(e.key || e)
 
 	    sound.get(0).volume = 0.1;
 	    sound.get(0).play();
@@ -155,7 +152,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4)))
 
 /***/ },
-/* 13 */
+/* 9 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -242,7 +239,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 14 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Backbone) {
@@ -299,7 +296,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 15 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Backbone, $) {
