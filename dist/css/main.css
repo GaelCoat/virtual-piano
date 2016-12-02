@@ -24,6 +24,11 @@ body{
   background-color: #101010;
   height: 100%;
   text-align: center;
+
+
+  background: -moz-linear-gradient(top,  #101010 20%,  #202020 100%);
+  background: -webkit-linear-gradient(top,  #101010 20%, #202020 100%);
+  background: linear-gradient(to bottom,  #101010 20%, #202020 100%);
 }
 
 .align{
@@ -153,4 +158,110 @@ body{
 
 .loading .velcome h2:before{
   width: 100%;
+}
+
+
+/* -------------------------------------------------------- */
+/* Piano
+/* -------------------------------------------------------- */
+.piano{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.piano ul.whites{
+  width: 100%;
+  font-size: 0;
+}
+
+.piano ul.whites li{
+  width: 2.7777777%;
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px #101010;
+  border-radius: 3px 3px 0 0;
+  transition: .3s;
+  position: relative;
+}
+
+.piano ul.whites li.pressed{
+  transform: translate3d(0, 50%, 0);
+  transition: .05s ease;
+}
+
+.piano ul.whites li:before{
+  display: block;
+  padding-top: 100%;
+  content: "";
+}
+
+.piano ul.whites li:after{
+  display: block;
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 8px;
+  border-radius: 2px 2px 0 0;
+  bottom: 10px;
+
+  background: -moz-linear-gradient(top,  rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom,  rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 100%);
+}
+
+
+.piano ul.blacks{
+  width: 100%;
+  font-size: 0;
+  white-space: nowrap;
+  margin-left: 2.77777777777%;
+  text-align: left;
+  position: relative;
+  bottom: -30px;
+}
+
+.piano ul.blacks li{
+  width: 2%;
+  left: -1%;
+  margin-right: 0.77777777777%;
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: #000;
+  border-radius: 2px 2px 0 0;
+  transition: .3s;
+  position: relative;
+}
+
+.piano ul.blacks li.pressed{
+  transform: translate3d(0, 20%, 0);
+  transition: .05s ease;
+}
+
+.piano ul.blacks li:before{
+  display: block;
+  padding-top: 150%;
+  content: "";
+}
+
+.piano ul.blacks li:after{
+  display: block;
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  border-radius: 1px 1px 0 0;
+  height: 18px;
+  background: -moz-linear-gradient(top,  rgba(250,250,250,.2) 0%, rgba(250,250,250,.12) 33% , rgba(250,250,250,0) 100%);
+  background: -webkit-linear-gradient(top,  rgba(250,250,250,.2) 0%, rgba(250,250,250,.12) 33% ,rgba(250,250,250,0) 100%);
+  background: linear-gradient(to bottom,  rgba(250,250,250,.2) 0%, rgba(250,250,250,.12) 33% ,rgba(250,250,250,0) 100%);
+}
+
+.piano ul.blacks li.none{
+  opacity: 0;
+  visibility: 0;
 }

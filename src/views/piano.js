@@ -40,7 +40,13 @@ module.exports = Backbone.View.extend({
     var sound = this.$el.find('#'+note).clone();
     if (sound.length === 0) return true;
 
-    this.canvas.add(e.key || e)
+    this.canvas.add(e.key || e);
+
+    this.$el.find("li[data-note='"+note+"']").addClass('pressed').delay(300).queue(function(done){
+
+      $(this).removeClass('pressed');
+      done();
+    });
 
     sound.get(0).volume = 0.2;
     sound.get(0).play();
@@ -52,6 +58,9 @@ module.exports = Backbone.View.extend({
   },
 
   render: function() {
+
+    console.log(this.$el.find('.whites li').length);
+    console.log(this.$el.find('.blacks li').length);
 
     return [
       this.initPlayer(),
