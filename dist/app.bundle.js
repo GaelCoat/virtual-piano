@@ -128,7 +128,7 @@ webpackJsonp([0],[
 
 	    this.canvas.add(e.key || e)
 
-	    sound.get(0).volume = 0.1;
+	    sound.get(0).volume = 0.2;
 	    sound.get(0).play();
 	    sound.get(0).onended = function() {
 	      sound.remove();
