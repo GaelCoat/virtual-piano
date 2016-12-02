@@ -5,16 +5,14 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GaelCoat/sharable-board.git"
+    "url": "https://github.com/GaelCoat/virtual-piano.git"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "GaelCoat",
   "license": "ISC",
   "devDependencies": {
-    "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.11.1",
     "css-loader": "^0.23.1",
     "debug": "^2.2.0",
     "eslint": "^2.7.0",
@@ -28,7 +26,6 @@
   },
   "dependencies": {
     "backbone": "^1.3.3",
-    "backbone.marionette": "^3.0.0",
     "dexie": "^1.4.1",
     "express": "4.13.4",
     "jquery": "^3.0.0",
